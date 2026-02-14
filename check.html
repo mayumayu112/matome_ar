@@ -11,169 +11,117 @@
             --sf-font: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
             --pixel-font: 'DotGothic16', sans-serif;
         }
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: var(--sf-font);
-            background-color: #000;
-        }
-        /* 背景：ジャケットが透けて見える演出 */
-        .bg-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        body, html { height: 100%; margin: 0; font-family: var(--sf-font); overflow-x: hidden; }
+        
+        /* 背景：ジャケット画像全面ぼかし */
+        .bg-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background: url('matomeAr_jacket.jpg') center center / cover no-repeat;
-            filter: blur(20px) brightness(0.4); /* ぼかしと暗さで透明感を演出 */
-            z-index: -1;
-            transform: scale(1.1);
+            filter: blur(30px) brightness(0.7); /* 全面をジャケットの色に */
+            z-index: -1; transform: scale(1.1);
         }
-        .wrapper {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
-            min-height: 100vh;
-        }
-        .container {
-            width: 100%;
-            max-width: 450px;
-            text-align: center;
-        }
-        /* ジャケット画像サイズ調整 */
+
+        .wrapper { display: flex; flex-direction: column; align-items: center; padding: 40px 20px; min-height: 100vh; }
+        
         .main-jacket {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 4px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
-            margin-bottom: 30px;
+            width: 100%; max-width: 300px; border-radius: 4px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3); margin-bottom: 25px;
         }
-        .release-date {
-            font-size: 14px;
-            font-weight: 600;
-            color: #ccc;
-            letter-spacing: 0.1em;
-            margin-bottom: 10px;
+
+        .release-date { font-size: 14px; font-weight: 600; color: #333; margin-bottom: 5px; }
+        
+        /* タイトル：MIYUMIYU追加 ＆ ピクセル文字 */
+        h1 { font-family: var(--pixel-font); font-size: 22px; color: #000; margin: 0 0 30px 0; line-height: 1.4; }
+
+        /* 配信サイト欄：白の塗りつぶし */
+        .links-container { 
+            width: 100%; max-width: 500px; 
+            background: #ffffff; /* 白塗りつぶし */
+            border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            overflow: hidden; margin-bottom: 40px;
         }
-        /* タイトル：ピクセル文字 */
-        h1 {
-            font-family: var(--pixel-font);
-            font-size: 26px;
-            color: #fff;
-            margin: 0 0 40px 0;
-        }
-        .links-container {
-            background: rgba(255, 255, 255, 0.05); /* 枠を少し透過 */
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 40px;
-        }
-        /* 配信サイトの各行 */
+
         .link-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            background: rgba(0,0,0,0.2);
-            text-decoration: none;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 20px; border-bottom: 1px solid #eee;
+            text-decoration: none; transition: background 0.2s;
         }
         .link-row:last-child { border-bottom: none; }
-        .service-logo {
-            height: 22px;
-            max-width: 130px;
-            object-fit: contain;
-            filter: brightness(0) invert(1); /* ロゴを白抜きに */
-        }
+        .link-row:hover { background: #f9f9f9; }
+
+        /* ロゴ：元の色を活かす（白背景用） */
+        .service-logo { height: 20px; max-width: 130px; object-fit: contain; }
+        .service-name { font-size: 14px; font-weight: bold; color: #333; }
+
         /* ボタン：ブラック背景・白文字 */
         .action-btn {
-            background-color: #fff;
-            color: #000;
-            font-size: 12px;
-            font-weight: 700;
-            padding: 8px 16px;
-            border-radius: 4px;
-            min-width: 60px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: opacity 0.2s;
+            background-color: #000; color: #fff;
+            font-size: 11px; font-weight: 800; padding: 8px 16px;
+            border-radius: 4px; min-width: 50px; text-align: center;
         }
-        .link-row:hover .action-btn {
-            opacity: 0.8;
-        }
-        /* 配信未定（グレーで見えない、押せない） */
-        .disabled {
-            pointer-events: none;
-            opacity: 0.1; /* かなり薄くして見えないように */
-        }
-        /* 下部SNSリンク */
-        .sns-footer {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: auto;
-            padding: 20px 0;
-        }
-        .sns-footer a {
-            color: #fff;
-            font-size: 22px;
-            transition: transform 0.2s;
-        }
-        .sns-footer a:hover {
-            transform: translateY(-3px);
-        }
+
+        /* 配信未定：欄をおせない、グレー勝って見えないように（極薄） */
+        .disabled { pointer-events: none; opacity: 0.15; }
+
+        .sns-footer { display: flex; justify-content: center; gap: 35px; padding-bottom: 40px; }
+        .sns-footer a { color: #000; font-size: 24px; transition: 0.2s; }
     </style>
 </head>
 <body>
-
-<div class="bg-image"></div>
-
-<div class="wrapper">
-    <div class="container">
+    <div class="bg-container"></div>
+    <div class="wrapper">
         <img src="matomeAr_jacket.jpg" class="main-jacket" alt="Jacket">
-        
         <div class="release-date">2026.02.14</div>
-        <h1>まとめ (Ar ver.)</h1>
+        <h1>MIYUMIYU<br>「まとめ(Ar ver.)」</h1>
 
         <div class="links-container">
             <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" target="_blank" class="link-row">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_Music_logo.svg" class="service-logo" alt="Apple Music">
-                <span class="action-btn">Play</span>
-            </a>
-            <a href="https://music.youtube.com/watch?v=lMe0U72qbOM" target="_blank" class="link-row">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_logo.svg" class="service-logo" alt="YouTube Music">
-                <span class="action-btn">Play</span>
+                <span class="action-btn">PLAY</span>
             </a>
             <div class="link-row disabled">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" class="service-logo" alt="Spotify">
-                <span class="action-btn">Play</span>
+                <span class="action-btn">PLAY</span>
             </div>
+            <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" target="_blank" class="link-row">
+                <span class="service-name">iTunes Store</span>
+                <span class="action-btn">BUY</span>
+            </a>
+            <a href="https://music.youtube.com/watch?v=lMe0U72qbOM" target="_blank" class="link-row">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/Youtube_Music_logo.svg" class="service-logo" alt="YouTube Music">
+                <span class="action-btn">PLAY</span>
+            </a>
             <a href="https://www.amazon.co.jp/s?k=MIYUMIYU+%E3%81%BE%E3%81%A8%E3%82%81&i=digital-music" target="_blank" class="link-row">
                 <img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Amazon_Music_logo.svg" class="service-logo" alt="Amazon">
-                <span class="action-btn">Play</span>
+                <span class="action-btn">PLAY</span>
             </a>
             <a href="https://music.line.me/webapp/album/mb000000000508e85b" target="_blank" class="link-row">
                 <img src="https://music.line.me/static/img/logo_music_web.png" class="service-logo" alt="LINE MUSIC">
-                <span class="action-btn">Play</span>
+                <span class="action-btn">PLAY</span>
             </a>
-            <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" target="_blank" class="link-row">
-                <i style="color:white; font-size: 20px;" class="fa-brands fa-itunes-note"></i>
-                <span class="action-btn">Buy</span>
+            <a href="https://s.awa.fm/track/3320d43620bd81719060" target="_blank" class="link-row">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/AWA_logo.svg/1200px-AWA_logo.svg.png" class="service-logo" alt="AWA">
+                <span class="action-btn">PLAY</span>
             </a>
             <a href="https://recochoku.jp/song/S1029834802/single" target="_blank" class="link-row">
-                <span style="color:white; font-weight:bold; font-size:12px;">レコチョク</span>
-                <span class="action-btn">Buy</span>
+                <span class="service-name">レコチョク</span>
+                <span class="action-btn">BUY</span>
+            </a>
+            <div class="link-row disabled">
+                <span class="service-name">KKBOX</span>
+                <span class="action-btn">PLAY</span>
+            </div>
+            <div class="link-row disabled">
+                <span class="service-name">Melon</span>
+                <span class="action-btn">PLAY</span>
             </a>
         </div>
-    </div>
 
-    <div class="sns-footer">
-        <a href="https://www.instagram.com/miyusanno.official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://www.tiktok.com/@miyutakeuchi_official" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="https://x.com/take_miyu112" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        <div class="sns-footer">
+            <a href="https://www.instagram.com/miyusanno.official/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.tiktok.com/@miyutakeuchi_official" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https://x.com/take_miyu112" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
     </div>
-</div>
-
 </body>
 </html>
