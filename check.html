@@ -59,22 +59,20 @@
             object-fit: cover;
         }
 
-       .song-info {
+.song-info {
             text-align: center;
-            color: #ffffff;
-            margin-top: -10px;    /* 位置を上げるためにマイナスの余白を追加 */
-            margin-bottom: 20px;   /* 下のカードとの距離を少し詰める（30px→20px） */
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            color: #ffffff;      /* テキストを白に戻しました */
+            margin-top: -10px;
+            margin-bottom: 40px; /* 20pxから40pxに広げて空間を確保しました */
+            text-shadow: none;   /* 影も削除しています */
         }
-        
 
-        /* タイトル：ピクセルアート文字に変更 */
         .song-title {
             font-family: var(--font-pixel);
-            font-size: 17px;       /* 21pxから17pxへ小さく変更 */
+            font-size: 17px;
             font-weight: 600;
             letter-spacing: 0.05em;
-            -webkit-text-stroke: 0.5px #fff;
+            /* 縁取り（text-stroke）の行を削除しました */
         }
 
         .link-card {
@@ -152,7 +150,7 @@
         /* 2. Coming Soonをピクセル文字にする設定 */
         .coming-soon {
             font-family: var(--font-pixel); /* ピクセルフォントを適用 */
-            font-size: 9px;                 /* 少し小さめに */
+            font-size: 14px; 　　　　　　　　　/* 9pxから14pxへ変更 */
             color: #888;                    /* 目立ちすぎないグレー */
             margin-right: 8px;              /* 右側のPlayボタンとの間隔 */
         }
@@ -207,7 +205,6 @@
         <span class="play-btn" style="background-color: #555;">Play</span>
     </div>
  </div>
-            </a>
            <div class="link-item disabled-link">
     <span class="service-name">Melon</span>
     <div style="display: flex; align-items: center;">
@@ -215,7 +212,6 @@
         <span class="play-btn" style="background-color: #555;">Play</span>
     </div>
 </div>
-            </a>
             <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" class="link-item" target="_blank">
                 <span class="service-name">iTunes Store</span>
                 <span class="play-btn">Buy</span>
