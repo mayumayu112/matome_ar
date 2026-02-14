@@ -142,6 +142,21 @@
             color: rgba(255,255,255,0.6);
             letter-spacing: 0.1em;
         }
+
+        /* 1. タップを無効化し、色を少し薄くする設定 */
+        .disabled-link {
+            pointer-events: none; /* クリックを完全に無効化 */
+            opacity: 0.6;        /* 全体を少し薄くする */
+        }
+
+        /* 2. Coming Soonをピクセル文字にする設定 */
+        .coming-soon {
+            font-family: var(--font-pixel); /* ピクセルフォントを適用 */
+            font-size: 9px;                 /* 少し小さめに */
+            color: #888;                    /* 目立ちすぎないグレー */
+            margin-right: 8px;              /* 右側のPlayボタンとの間隔 */
+        }
+        
     </style>
 </head>
 <body>
