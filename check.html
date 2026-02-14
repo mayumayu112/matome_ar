@@ -148,11 +148,12 @@
         }
 
         /* 2. Coming Soonをピクセル文字にする設定 */
-        .coming-soon {
-            font-family: var(--font-pixel); /* ピクセルフォントを適用 */
-            font-size: 14px; 　　　　　　　　　/* 9pxから14pxへ変更 */
-            color: #888;                    /* 目立ちすぎないグレー */
-            margin-right: 8px;              /* 右側のPlayボタンとの間隔 */
+.coming-soon {
+            font-family: var(--font-pixel);
+            font-size: 14px; /* 確実に14pxを適用 */
+            color: #000;    /* グレー(#888)からブラック(#000)へ変更 */
+            margin-right: 8px;
+            font-weight: 600; /* ブラックにするなら少し太い方が読みやすいです */
         }
         
     </style>
