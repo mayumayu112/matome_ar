@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MIYUMIYU - まとめ (Ar ver.)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px; /* スマホ時の上下余白 */
+        }
+        .container {
+            background-color: white;
+            width: 100%;
+            max-width: 450px; /* PCでも広がりすぎない幅 */
+            padding: 40px 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+        /* スマホ専用の調整 (画面幅が600px以下の時) */
+        @media (max-width: 600px) {
+            .container {
+                width: 85%; /* 枠を少しスリムに */
+                padding: 30px 20px;
+            }
+        }
+        .jacket-link {
+            display: block;
+            position: relative;
+            margin-bottom: 25px;
+            transition: transform 0.3s;
+        }
+        .jacket-link:hover {
+            transform: scale(1.02);
+        }
+        .jacket-link::after {
+            content: "▶ YouTubeで見る";
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 5px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        h1 {
+            font-size: 20px;
+            margin: 0 0 5px 0;
+            color: #333;
+        }
+        p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 20px;
+            background-color: #000; /* ボタン黒塗り */
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: opacity 0.2s;
+        }
+        .link-item:hover {
+            opacity: 0.8;
+        }
+        .link-item span:last-child {
+            background: #333;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        /* SNSリンク */
+        .sns-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+        .sns-links a {
+            color: #333;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .sns-links a:hover {
+            color: #666;
+        }
+        footer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <a href="https://youtu.be/QZkV3Tyo0II?si=vAHIuDzJ795rJqfB" target="_blank" class="jacket-link">
+        <img src="matomeAr_jacket.jpg" alt="まとめ (Ar ver.) ジャケット">
+    </a>
+
+    <h1>まとめ (Ar ver.)</h1>
+    <p>MIYUMIYU</p>
+
+    <div class="links">
+        <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" target="_blank" class="link-item">
+            <span>Apple Music</span><span>聴く</span>
+        </a>
+        <a href="https://music.apple.com/jp/album/memoirs-ar-ver-single/1877096205" target="_blank" class="link-item">
+            <span>iTunes Store</span><span>買う</span>
+        </a>
+        <a href="https://music.youtube.com/watch?v=lMe0U72qbOM" target="_blank" class="link-item">
+            <span>YouTube Music</span><span>聴く</span>
+        </a>
+        <a href="https://www.amazon.co.jp/s?k=MIYUMIYU+%E3%81%BE%E3%81%A8%E3%82%81&i=digital-music" target="_blank" class="link-item">
+            <span>Amazon Music</span><span>聴く</span>
+        </a>
+        <a href="https://music.line.me/webapp/album/mb000000000508e85b" target="_blank" class="link-item">
+            <span>LINE MUSIC</span><span>聴く</span>
+        </a>
+        <a href="https://s.awa.fm/track/3320d43620bd81719060" target="_blank" class="link-item">
+            <span>AWA</span><span>聴く</span>
+        </a>
+        <a href="https://recochoku.jp/song/S1029834802/single" target="_blank" class="link-item">
+            <span>レコチョク</span><span>買う</span>
+        </a>
+    </div>
+
+    <div class="sns-links">
+        <a href="https://x.com/take_miyu112" target="_blank" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/miyusanno.official/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@miyutakeuchi_official" target="_blank" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+
+    <footer>&copy; 2026 MIYUMIYU
